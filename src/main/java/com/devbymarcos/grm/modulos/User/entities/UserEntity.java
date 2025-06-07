@@ -26,12 +26,11 @@ public class UserEntity {
     private String email;
     @Length(min = 6, message = "Password deve ter no mínimo 6 caracteres")
     private String password;
-    private String type;
+    private String type = "user";
 
     @CreationTimestamp
     private LocalDateTime createdAt;
     @UpdateTimestamp
     private LocalDateTime updateAt;
-
 
 }

@@ -8,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import com.devbymarcos.grm.modulos.User.entities.UserEntity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,8 +32,11 @@ public class ReportEntity {
     private String content;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private UserEntity user;
+
+    @Column(name = "user_id", nullable = false)
+    private UUID userId;
 
     @CreationTimestamp
     private LocalDateTime createdAt;

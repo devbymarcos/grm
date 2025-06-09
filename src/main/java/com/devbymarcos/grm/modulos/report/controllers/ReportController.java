@@ -26,11 +26,11 @@ public class ReportController {
     @PostMapping("/create")
     public ReportEntity create(@Valid @RequestBody CreateReportDTO createReportDTO, HttpServletRequest request) {
 
-        var reportId = request.getAttribute("user_id");
+        var userId = request.getAttribute("user_id");
 
         var reportEntity = ReportEntity.builder()
                 .content(createReportDTO.getContent())
-                .user(UUID.fromString(reportId.toString()))
+                .userId(UUID.fromString(userId.toString()))
                 .build();
         return this.createReportUseCase.execute(reportEntity);
 

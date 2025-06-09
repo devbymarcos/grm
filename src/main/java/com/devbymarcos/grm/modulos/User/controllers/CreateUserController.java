@@ -19,7 +19,7 @@ public class CreateUserController {
     @Autowired
     private CreateUserUseCase createUserUseCase;
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<Object> userCreate(@Valid @RequestBody UserEntity userEntity) {
         try {
             var result = this.createUserUseCase.execute(userEntity);

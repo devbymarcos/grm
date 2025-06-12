@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Email;
 import lombok.Data;
 
 @Data
-public class LoginUserDTO {
+public class AuthUserDTO {
 
     @Email(message = "Email deve ser válido")
     private String email;

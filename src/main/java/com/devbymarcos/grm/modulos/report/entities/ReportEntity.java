@@ -14,6 +14,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,7 +22,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Entity(name = "report")
+@Entity(name = "REPORTS")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,7 +30,11 @@ public class ReportEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+    private String idTicket;
+    @Lob
+    @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
+    private LocalDateTime dateClose;
 
     @ManyToOne
     @JoinColumn(name = "user_id", insertable = false, updatable = false)

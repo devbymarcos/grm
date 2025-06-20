@@ -23,13 +23,15 @@ public class ReportController {
     @Autowired
     private CreateReportUseCase createReportUseCase;
 
-    @PostMapping("/create")
+    @PostMapping()
     public ReportEntity create(@Valid @RequestBody CreateReportDTO createReportDTO, HttpServletRequest request) {
 
         var userId = request.getAttribute("user_id");
 
         var reportEntity = ReportEntity.builder()
                 .content(createReportDTO.getContent())
+                .idTicket(createReportDTO.getIdTicket())
+                .dateClose(createReportDTO.getDateClose())
                 .userId(UUID.fromString(userId.toString()))
                 .build();
         return this.createReportUseCase.execute(reportEntity);

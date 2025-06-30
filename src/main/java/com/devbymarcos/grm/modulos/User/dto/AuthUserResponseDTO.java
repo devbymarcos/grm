@@ -10,5 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AuthUserResponseDTO {
-    private String access_token;
+    private String token;
+    private Boolean success;
+    private String message;
 }

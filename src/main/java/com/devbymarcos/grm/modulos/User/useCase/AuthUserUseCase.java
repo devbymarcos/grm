@@ -33,11 +33,15 @@ public class AuthUserUseCase {
                                 .withIssuer("grm-api")
                                 .withSubject(user.getId().toString())
                                 .withExpiresAt(Instant.now().plus(Duration.ofHours(2)))
-                                .withClaim("roles", Arrays.asList("user"))
+                                .withClaim("id", user.getId().toString())
+                                .withClaim("email", user.getEmail())
+                                .withClaim("role", user.getRole())
                                 .sign(algorithm);
 
                 var authUserResponse = AuthUserResponseDTO.builder()
-                                .access_token(token)
+                                .token(token)
+                                .success(true)
+                                .message("token criado com sucesso")
                                 .build();
 
                 return authUserResponse;

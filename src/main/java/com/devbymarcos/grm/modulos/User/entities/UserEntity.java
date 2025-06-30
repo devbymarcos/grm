@@ -10,12 +10,14 @@ import org.hibernate.validator.constraints.Length;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.persistence.GenerationType;
 import lombok.Data;
 
 @Data
-@Entity(name = "USERS")
+@Entity
+@Table(name = "USERS")
 public class UserEntity {
 
     @Id

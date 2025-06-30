@@ -1,9 +1,9 @@
-package com.grm.grm;
+package com.devbymarcos.grm;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+@SpringBootTest(classes = GrmApplication.class)
 class GrmApplicationTests {
 
 	@Test

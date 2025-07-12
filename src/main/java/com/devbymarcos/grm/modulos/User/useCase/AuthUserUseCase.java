@@ -35,6 +35,7 @@ public class AuthUserUseCase {
                                 .withClaim("id", user.getId().toString())
                                 .withClaim("email", user.getEmail())
                                 .withClaim("role", user.getRole())
+                                .withClaim("name", user.getName())
                                 .sign(algorithm);
 
                 var authUserResponse = AuthUserResponseDTO.builder()
